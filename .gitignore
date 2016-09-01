@@ -1,0 +1,5 @@
+*.sqlite3
+*.pyc
+*.git
+*.DS_Store
+settings.py

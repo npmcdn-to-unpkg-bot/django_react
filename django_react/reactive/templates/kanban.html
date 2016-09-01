@@ -1,0 +1,111 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block react %}
+<style>
+.card input{
+	margin: 2px;
+}
+</style>
+
+<script type="text/babel">
+
+var Board = React.createClass({
+	getInitialState: function(){
+		return {cols: '', name: ''}
+	},
+	componentDidMount: function() {
+		this.setState({cols: this.props.cols, name: this.props.name})
+	},
+
+	handleAddColumn: function() {
+		if (this.state.cols + 1 > 6){ //magic number to cap at six columns
+			return;
+		} else
+		this.setState({cols: this.state.cols + 1})
+	},
+	handleSubtractColumn: function() { //TODO: remove this and replace with a column-specific "Destroy" method
+		if (this.state.cols - 1 == 0) {
+			this.setState({cols: 1})
+		} else
+		this.setState({cols: this.state.cols -1})
+	},
+
+	handleNameChange: function(e) {
+		this.setState({name: e.target.value});
+	},
+
+	toggleEditField: function(e) {
+		$("#editBoardName").toggle();
+	},
+
+	render: function() {
+		//use verbatim here for style mapping so django doesn't try to interpret the tag
+		return (
+			<div className='board jumbotron'>
+				<h3>{this.state.name} <i className='fa fa-pencil' onClick={this.toggleEditField}/></h3>
+				{% verbatim %}
+				<input type='text' id='editBoardName' style={{display: 'none'}} value={this.state.name} onChange={this.handleNameChange}/>
+				{% endverbatim %}
+				<hr />
+				<a href="#" onClick={this.handleAddColumn}>add col</a> | 
+				<a href="#" onClick={this.handleSubtractColumn}> sub col</a>
+				<hr />
+				<div className='row'>
+					{Array.from({length: this.state.cols}, (x,y) => <Column key={y} maxCards={5} />)}
+				</div>
+			</div>
+		);
+	}
+});
+
+
+var Column = React.createClass({
+	getInitialState: function() {
+		return {maxCards: '', currentCards: '', name: ''}
+	},
+	componentDidMount: function() {
+		this.setState({maxCards: this.props.maxCards, currentCards: 0, name: 'Default Column'})
+	},
+
+	handleAddCard: function(){
+		if (this.state.currentCards + 1 > this.state.maxCards){
+			return;
+		} else
+		this.setState({currentCards: this.state.currentCards+1})
+	},
+
+	render: function() {
+		//again use verbatim to prevent django from messing with style mapping
+		return (
+			<div className='column col-sm-4 col-md-4 col-lg-2'>
+				<i className='fa fa-pencil' />
+				<p>{this.state.name}</p>
+				<p>Max Cards: {this.state.maxCards}</p>
+				<i className='fa fa-plus' onClick={this.handleAddCard}> Card </i>
+				{Array.from({length: this.state.currentCards}, (x,y) => <Card key={y} /> )}
+			</div>
+		);
+	}
+});
+
+var Card = React.createClass({
+	render: function() {
+		return (
+			<div className='card'>
+				<textarea placeholder='placeholder' />
+			</div>
+		);
+	}
+});
+
+ReactDOM.render(
+	<Board cols={3} name={"Default Board"}/>,
+	document.getElementById('content')
+);
+
+
+</script>
+{% endblock %}
+

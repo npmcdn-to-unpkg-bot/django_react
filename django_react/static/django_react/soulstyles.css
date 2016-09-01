@@ -1,0 +1,159 @@
+@import url(https://fonts.googleapis.com/css?family=Lora);
+/* Custom styles for souldeux.com */
+
+h1,h2,h3,h4,h5 {
+	font-family: 'Lora', serif;
+	color: #323232;
+}
+
+p,li {
+	font-family: 'Lora', serif;
+	font-size: 120%;
+	color: #323232;
+}
+
+a:link,a:visited {
+	text-decoration: none;
+}
+
+/* Home page content area 1 (full width responsive background image) */
+
+.primary-image-marketing {
+	background: url("../souldeux/primarybg1.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	height: 300px;
+  	text-align: center;
+  	position: relative;
+}
+
+div.primary-image-marketing h1 {
+	font-size: 500%;
+	color: #FFFFFF;
+	padding-top: 100px;
+	text-shadow: -2px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+div.primary-image-marketing h2 {
+	padding-top: 75px !important;
+	color: #FFFFFF;
+	text-shadow: -2px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+div.primary-image-marketing h3,div.primary-image-marketing p {
+	color: #FFFFFF;
+}
+
+/* Styling for gray content bands */
+
+.content-gray {
+	background-color: #323232;
+	text-align: center;
+	padding-bottom:20px;
+}
+
+.content-gray h1,.content-gray h3,.content-gray i,.content-gray a:link,.content-gray a:visited {
+	color: #ADD8E6;
+}
+
+.content-gray p {
+	color: white;
+}
+.spacer-horizontal {
+	min-height: 50px;
+}
+
+/* Styling for white content bands */
+.content-white {
+	padding-top: 20px;
+	padding-bottom: 40px;
+	text-align: center;
+}
+
+
+
+/* Blog-specific stylings */
+.post-preview {
+	padding: 40px;
+	text-align: justify;
+}
+
+.post-container {
+	background: url("../souldeux/crossword.png");
+	line-height: 1.7;
+	font-size: 115%;
+}
+
+.series-indices {
+	padding: 10px;
+}
+
+div.series-indices li {
+	font-size: 100%;
+}
+
+
+
+/* SOLAR STYLIN' */
+.solar {
+	background: url("../souldeux/planets/sun.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	text-align: center;
+}
+
+.solar-footer-right {
+	color: #FFFFFF;
+	text-shadow: -2px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+.solar-footer-left {
+	color: #FFFFFF;
+	text-shadow: -2px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+.solar-centered {
+	height: 300px;
+	width: 100%;
+	position: absolute;
+	top: 40%;
+	left: 0;
+	margin-top: -50px;
+	background-color: rgba(0,0,0,0.4);
+}
+
+div.solar-centered h1,div.solar-centered h2,div.solar-centered i,div.solar-centered p {
+	color: #FFFFFF;
+	text-shadow: -2px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.opacity-mask {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #000000;
+	opacity: 0;
+}
+
+.top-anchored {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+.top-anchored h1 {
+	text-shadow: -2px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	color: #FFFFFF;
+}
